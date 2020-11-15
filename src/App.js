@@ -1,11 +1,12 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 
-import Menu from './Menu';
 import Header from './Header';
 import Footer from './Footer';
 import theme from './Theme';
 import './CSS-vars';
+
+const Menu = React.lazy(() => import('./Menu'));
 
 class App extends React.Component {
   state = {
@@ -22,7 +23,9 @@ class App extends React.Component {
     return (
       <ThemeProvider theme={theme}>
         <div>
-          <Menu open={state.isMenuOpen} toggleMenu={toggleMenu} />
+          <React.Suspense fallback={<p>Загрузка...</p>}>
+            <Menu open={state.isMenuOpen} toggleMenu={toggleMenu} />
+          </React.Suspense>
           <Header toggleMenu={toggleMenu} />
           <Footer />
         </div>
