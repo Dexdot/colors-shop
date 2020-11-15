@@ -143,6 +143,7 @@ export const ButtonCart = styled.button`
   width: 24px;
   height: 24px;
 
+  line-height: 24px;
   font-size: 12px;
   font-weight: 500;
   color: ${({ theme }) => theme.black};
