@@ -1,53 +1,30 @@
 import React from 'react';
-import {
-  Wrapper,
-  Inner,
-  Logo,
-  Nav,
-  NavList,
-  NavLink,
-  ButtonCart,
-  ButtonBurger
-} from './styled';
+import PropTypes from 'prop-types';
+import { Wrapper, Inner, Logo, ButtonCart, ButtonBurger } from './styled';
 import Container from '../ui/Container';
 import MenuBar from '../MenuBar';
 import burger from './burger.svg';
 import logo from './logo.svg';
 
-const Header = () => (
+const Header = ({ toggleMenu }) => (
   <Wrapper>
     <Container>
       <Inner>
-        <ButtonBurger type="button">
+        <ButtonBurger type="button" onClick={toggleMenu}>
           <img src={burger} alt="Menu" />
         </ButtonBurger>
         <Logo href="/">
           <img src={logo} alt="Colors logo" />
         </Logo>
-        <Nav>
-          <NavList>
-            <li>
-              <NavLink href="/">Продукты</NavLink>
-            </li>
-            <li>
-              <NavLink href="/">Цвета</NavLink>
-            </li>
-            <li>
-              <NavLink href="/">Вдохновение</NavLink>
-            </li>
-            <li>
-              <NavLink href="/">Советы</NavLink>
-            </li>
-            <li>
-              <NavLink href="/">Найти магазин</NavLink>
-            </li>
-          </NavList>
-        </Nav>
         <MenuBar desktop />
         <ButtonCart type="button">0</ButtonCart>
       </Inner>
     </Container>
   </Wrapper>
 );
+
+Header.propTypes = {
+  toggleMenu: PropTypes.func.isRequired
+};
 
 export default Header;

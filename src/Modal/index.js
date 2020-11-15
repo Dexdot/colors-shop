@@ -1,28 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Section,
-  Overlay,
-  Container,
-  Content,
-  Header,
-  Title,
-  ButtonClose
-} from './styled';
-import close from './close.svg';
+import { Section, Overlay, Container, Content, Header, Title } from './styled';
+import ButtonClose from '../ui/ButtonClose';
 
-const Modal = ({ isOpen, title, content }) => (
-  <Section isOpen={isOpen}>
-    <Overlay type="button" />
-    <Container isOpen={isOpen}>
+const Modal = ({ open, title, children, toggleModal }) => (
+  <Section open={open}>
+    <Overlay type="button" onClick={toggleModal} />
+    <Container open={open}>
       <Content>
         <Header>
           <Title>{title}</Title>
-          <ButtonClose type="button">
-            <img src={close} alt="Закрыть" />
-          </ButtonClose>
-          {content}
+          <ButtonClose type="button" onClick={toggleModal} />
         </Header>
+        {children}
       </Content>
     </Container>
   </Section>
@@ -33,9 +23,10 @@ Modal.defaultProps = {
 };
 
 Modal.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-  content: PropTypes.node.isRequired,
-  title: PropTypes.node
+  open: PropTypes.bool.isRequired,
+  children: PropTypes.node.isRequired,
+  title: PropTypes.node,
+  toggleModal: PropTypes.func.isRequired
 };
 
 export default Modal;

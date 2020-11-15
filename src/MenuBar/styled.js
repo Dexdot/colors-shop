@@ -1,5 +1,59 @@
 import styled from 'styled-components';
 
+export const Nav = styled.nav`
+  line-height: 1;
+
+  @media (max-width: 990px) {
+    margin-bottom: 24px;
+  }
+`;
+
+export const NavDesktop = styled(Nav)`
+  @media (max-width: 990px) {
+    display: none;
+  }
+`;
+
+export const NavList = styled.ul`
+  display: flex;
+
+  @media (min-width: 991px) {
+    align-items: center;
+    margin-left: -24px;
+  }
+
+  @media (max-width: 990px) {
+    flex-direction: column;
+    margin-top: -16px;
+  }
+
+  li {
+    @media (min-width: 991px) {
+      margin-left: 24px;
+    }
+
+    @media (max-width: 990px) {
+      margin-top: 16px;
+    }
+  }
+`;
+
+export const NavLink = styled.a`
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.black};
+
+  @media (min-width: 991px) and (max-width: 1600px) {
+    font-size: 12px;
+  }
+
+  @media (min-width: 991px) and (max-width: 1100px) {
+    font-size: 10px;
+  }
+`;
+
 const Contact = styled.div`
   line-height: 1;
 
@@ -34,12 +88,13 @@ export const ContactDesktop = styled(Contact)`
 `;
 
 export const ContactMobile = styled(Contact)`
-  margin-top: 40px;
+  order: 1;
 `;
 
 const Bar = styled.ul`
   line-height: 1;
   display: flex;
+  margin-left: -24px;
 
   li {
     margin-left: 24px;
@@ -59,24 +114,14 @@ const Bar = styled.ul`
 `;
 
 export const BarDesktop = styled(Bar)`
-  margin-left: -24px;
-
   @media (max-width: 990px) {
     display: none;
-  }
-
-  li {
-    margin-left: 24px;
   }
 `;
 
 export const BarMobile = styled(Bar)`
-  flex-direction: column;
-  margin-top: -16px;
-
-  li {
-    margin-top: 16px;
-  }
+  margin-top: auto;
+  margin-bottom: 24px;
 `;
 
 export const BarIcon = styled.img`

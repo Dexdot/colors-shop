@@ -39,39 +39,6 @@ export const Inner = styled.div`
   }
 `;
 
-export const Nav = styled.nav`
-  @media (max-width: 990px) {
-    display: none;
-  }
-`;
-
-export const NavList = styled.ul`
-  line-height: 1;
-  display: flex;
-  align-items: center;
-  margin-left: -24px;
-
-  li {
-    margin-left: 24px;
-  }
-`;
-
-export const NavLink = styled.a`
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: ${({ theme }) => theme.black};
-
-  @media (max-width: 1600px) {
-    font-size: 12px;
-  }
-
-  @media (max-width: 1100px) {
-    font-size: 10px;
-  }
-`;
-
 export const ButtonCart = styled.button`
   display: flex;
   align-items: center;
