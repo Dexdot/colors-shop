@@ -1,9 +1,17 @@
 import React from 'react';
+import { ThemeProvider } from 'styled-components';
+
+import Header from './Header';
+import Footer from './Footer';
+import theme from './theme';
 
 const App = () => (
-  <div>
-    <h1>Colors</h1>
-  </div>
+  <ThemeProvider theme={theme}>
+    <div>
+      <Header />
+      <Footer />
+    </div>
+  </ThemeProvider>
 );
 
 export default App;
