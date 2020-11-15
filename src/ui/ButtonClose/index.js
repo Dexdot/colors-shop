@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
-
 import React from 'react';
 import styled from 'styled-components';
 import close from './close.svg';
@@ -23,6 +21,7 @@ const Button = styled.button`
 `;
 
 const ButtonClose = (props) => (
+  // eslint-disable-next-line
   <Button {...props}>
     <img src={close} alt="Закрыть" />
   </Button>

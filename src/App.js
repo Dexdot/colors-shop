@@ -1,4 +1,5 @@
 import React from 'react';
+import Media from 'react-media';
 import { ThemeProvider } from 'styled-components';
 
 import Header from './Header';
@@ -6,8 +7,11 @@ import Footer from './Footer';
 import theme from './Theme';
 import './CSS-vars';
 
+// Lazy components
 const Menu = React.lazy(() => import('./Menu'));
+const HeroSlider = React.lazy(() => import('./HeroSlider'));
 
+// App
 class App extends React.Component {
   state = {
     isMenuOpen: false
@@ -22,13 +26,27 @@ class App extends React.Component {
 
     return (
       <ThemeProvider theme={theme}>
-        <div>
-          <React.Suspense fallback={<p>Загрузка...</p>}>
-            <Menu open={state.isMenuOpen} toggleMenu={toggleMenu} />
-          </React.Suspense>
-          <Header toggleMenu={toggleMenu} />
-          <Footer />
-        </div>
+        <Media
+          query={{ maxWidth: 990 }}
+          render={() => (
+            <React.Suspense fallback={<p>Загрузка...</p>}>
+              <Menu open={state.isMenuOpen} toggleMenu={toggleMenu} />
+            </React.Suspense>
+          )}
+        />
+
+        <Header toggleMenu={toggleMenu} />
+        <main>
+          <Media
+            query={{ minWidth: 991 }}
+            render={() => (
+              <React.Suspense fallback={<p>Загрузка...</p>}>
+                <HeroSlider />
+              </React.Suspense>
+            )}
+          />
+        </main>
+        <Footer />
       </ThemeProvider>
     );
   }
