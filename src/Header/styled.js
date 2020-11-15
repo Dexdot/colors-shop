@@ -72,69 +72,6 @@ export const NavLink = styled.a`
   }
 `;
 
-export const Contact = styled.div`
-  margin-left: auto;
-  margin-right: 6vw;
-  line-height: 1;
-
-  @media (max-width: 1600px) {
-    margin-right: 40px;
-  }
-
-  @media (max-width: 990px) {
-    display: none;
-  }
-
-  a {
-    display: block;
-    margin-bottom: 2px;
-
-    font-size: 16px;
-    font-weight: 500;
-    letter-spacing: -0.02em;
-    color: ${({ theme }) => theme.black};
-  }
-
-  button {
-    opacity: 0.3;
-    font-size: 14px;
-    color: ${({ theme }) => theme.black};
-  }
-`;
-
-export const Bar = styled.ul`
-  line-height: 1;
-  display: flex;
-  margin-left: -24px;
-
-  @media (max-width: 990px) {
-    display: none;
-  }
-
-  li {
-    margin-left: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 20px;
-    height: 20px;
-  }
-`;
-
-export const BarIcon = styled.img`
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-`;
-
 export const ButtonCart = styled.button`
   display: flex;
   align-items: center;

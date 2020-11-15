@@ -6,18 +6,13 @@ import {
   Nav,
   NavList,
   NavLink,
-  Contact,
-  Bar,
-  BarIcon,
   ButtonCart,
   ButtonBurger
 } from './styled';
 import Container from '../ui/Container';
+import MenuBar from '../MenuBar';
 import burger from './burger.svg';
 import logo from './logo.svg';
-import search from './search.svg';
-import user from './user.svg';
-import heart from './heart.svg';
 
 const Header = () => (
   <Wrapper>
@@ -48,27 +43,7 @@ const Header = () => (
             </li>
           </NavList>
         </Nav>
-        <Contact>
-          <a href="tel:+74952217769">+7 (495) 221-77-69</a>
-          <button type="button">Заказать звонок</button>
-        </Contact>
-        <Bar>
-          <li>
-            <a href="/">
-              <BarIcon src={search} alt="Search" />
-            </a>
-          </li>
-          <li>
-            <a href="/">
-              <BarIcon src={user} alt="Profile" />
-            </a>
-          </li>
-          <li>
-            <a href="/">
-              <BarIcon src={heart} alt="Favorite" />
-            </a>
-          </li>
-        </Bar>
+        <MenuBar desktop />
         <ButtonCart type="button">0</ButtonCart>
       </Inner>
     </Container>
