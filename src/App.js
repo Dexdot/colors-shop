@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components';
 
 import Header from './Header';
 import Footer from './Footer';
+import Catalog from './Catalog';
 import theme from './Theme';
 import './CSS-vars';
 
@@ -36,6 +37,7 @@ class App extends React.Component {
         />
 
         <Header toggleMenu={toggleMenu} />
+
         <main>
           <Media
             query={{ minWidth: 991 }}
@@ -45,7 +47,10 @@ class App extends React.Component {
               </React.Suspense>
             )}
           />
+
+          <Catalog />
         </main>
+
         <Footer />
       </ThemeProvider>
     );
